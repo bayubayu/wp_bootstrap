@@ -105,11 +105,11 @@ function wp_bootstrap_comment_form_fields($fields) {
 	$aria_req = ( $req ? " aria-required='true'" : '' );
 	$html5    = 'html5' === current_theme_supports( 'html5', 'comment-form' ) ? 'html5' : 'xhtml';
 	$fields   =  array(
-		'author' => '<div class="comment-form-author form-group">' . '<label for="author">' . __( 'Name' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
+		'author' => '<div class="comment-form-author form-group">' . '<label for="author">' . __( 'Name', 'wp_bootstrap' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
 		            '<input id="author" class="form-control" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></div>',
-		'email'  => '<div class="comment-form-email form-group"><label for="email">' . __( 'Email' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
+		'email'  => '<div class="comment-form-email form-group"><label for="email">' . __( 'Email', 'wp_bootstrap' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
 		            '<input id="email" class="form-control" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></div>',
-		'url'    => '<div class="comment-form-url form-group"><label for="url">' . __( 'Website' ) . '</label> ' .
+		'url'    => '<div class="comment-form-url form-group"><label for="url">' . __( 'Website', 'wp_bootstrap' ) . '</label> ' .
 		            '<input id="url" class="form-control" name="url" ' . ( $html5 ? 'type="url"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></div>',
 	);
 	return $fields;
@@ -120,7 +120,7 @@ add_filter( 'comment_form_default_fields','wp_bootstrap_comment_form_fields' );
  * Customizing comment form textarea to support Bootstrap 3
  */
 function wp_bootstrap_comment_form_field_comment($field) {
-	$field = '<div class="comment-form-comment form-group"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label> <textarea id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea></div>';
+	$field = '<div class="comment-form-comment form-group"><label for="comment">' . _x( 'Comment', 'noun', 'wp_bootstrap' ) . '</label> <textarea id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea></div>';
 	return $field;
 }
 add_filter( 'comment_form_field_comment','wp_bootstrap_comment_form_field_comment' );
